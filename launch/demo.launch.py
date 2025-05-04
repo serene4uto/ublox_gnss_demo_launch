@@ -51,7 +51,7 @@ def generate_launch_description():
         
         Node(
             condition=IfCondition(LaunchConfiguration('eval')),
-            package='gnss_eval_ros',
+            package='gnss_utils_ros',
             executable='gnss_eval',
             name='gnss_eval',
             output='screen',
