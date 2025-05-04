@@ -1,0 +1,56 @@
+/**:
+  ntrip_client:
+    ros__parameters:
+
+      # Required parameters used to connect to the NTRIP server
+      # host: www.gnssdata.or.kr
+      # port: 2101
+      # mountpoint: KUNW-RTCM32
+      # username: kde1054@naver.com
+      # password: gnss
+
+      host: ntrip.hi-rtk.io
+      port: 2101
+      mountpoint: SNS_AUTO
+      username: sns
+      password: "1234"
+
+      # Optional parameter that will set the NTRIP version in the initial HTTP request to the NTRIP caster.
+      ntrip_version: 'NTRIP/2.0'
+      # The rate at which the NTRIP server will send RTCM messages. This will be the rate at which the node will request RTCM messages
+      ntrip_server_hz: 1.0 # max to 1.0 Hz for rtk2go
+      # If this is set to true, we will read the username and password and attempt to authenticate. If not, we will attempt to connect unauthenticated
+      authenticate: True
+      # If authenticate is set the true, we will use these to authenticate with the server
+      
+      ssl: false
+      cert: None
+      key: None
+      ca_cert: None
+      rtcm_frame_id: 'rtcm'
+      nmea_max_length: 250
+      nmea_min_length: 3
+      rtcm_message_package: 'rtcm_msgs'
+      reconnect_attempt_max: 10
+      reconnect_attempt_wait_seconds: 5
+      rtcm_timeout_seconds: 10
+
+/**:
+  ublox_gnss_node:
+    ros__parameters:
+      serial:
+        port: /dev/ttyACM0
+        baudrate: 115200
+        timeout: 0.5
+      frame_id: gnss
+      publish:
+        nmea: true
+    
+/**:
+  gnss_eval:
+    ros__parameters:
+      ground_truth:
+        latitude: 36.111165
+        longitude: 128.384271
+        altitude: 0.0
+      log_enable: true
